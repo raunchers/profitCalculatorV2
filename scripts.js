@@ -1,20 +1,3 @@
-/* 
-1. Collect use information
-    1a. Get total asset amount
-    1b. Percentage of total to be sold at each price point
-    1c. Price increase increment (does the user want to sell on every whole dollar, .50 cents, etc...)
-        * EX: Start selling 10% of total remaining asset at 1 dollar, then sell at ever dollar increment. 2 dollars, 3 dollars, etc.
-    1d. Starting price to start selling at
-    1e. Ending price to stop selling
-        EX: Start at 1 dollar, stop at 5 dollars. 
-2. After clicking submit, output information in table format (similar to excel)
-    2a. Have column headers
-        A. Remaining Asset
-        B. Amount sold
-        C. Price sold at
-        D. Gross Profits
-*/
-
 // submitData handles collecting the data input by the end user
 function submitData(){
     // Total starting asset balance
@@ -44,15 +27,7 @@ function calculateProfits(totalAssets, sellPercent, priceIncrease, startPrice, e
     // Array to hold each price points selling information. Will hold maps
     let sellingData = [];
 
-        /* 
-            1. Iterate through the price points
-            2. Calculate the current price to be sold at
-                a. Set the current selling price
-            3. Calculate the amount of the asset to be sold
-                a. Set the amount of asset being sold
-            4. Update the remaining balance
-            5. Update gross profits at this price point
-        */
+        // Loop through the price points, calculate at that point, add data to a new map.
         for(let currentSellPrice = startPrice; currentSellPrice <= endPrice; currentSellPrice += priceIncrease){
             // Calculate how much of the remaining balance to sell at the price point
             let sellableAmount = remainingBalance * sellPercent;
