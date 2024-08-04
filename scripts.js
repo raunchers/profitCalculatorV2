@@ -41,7 +41,7 @@ function calculateProfits(totalAssets, sellPercent, priceIncrease, startPrice, e
     // Total gross profits over all price points
     let totalGrossProfits = 0;
 
-    // Array to hold each price points selling information
+    // Array to hold each price points selling information. Will hold maps
     let sellingData = [];
 
         /* 
@@ -76,6 +76,7 @@ function calculateProfits(totalAssets, sellPercent, priceIncrease, startPrice, e
                 3. Remaining amount of asset
                 4. Current selling price
                 5. Gross profits
+                6. Total gross profits over all current selling price points
             */
             const sellData = new Map([
                 ["Asset balance", currentAssetBalance.toFixed(2)],
@@ -85,20 +86,18 @@ function calculateProfits(totalAssets, sellPercent, priceIncrease, startPrice, e
                 ["Gross profits", grossProfits.toFixed(2)],
                 ["Total gross profits", totalGrossProfits.toFixed(2)],
             ]);
-    
+            
+            // Push the map to the array
             sellingData.push(sellData);
         }
 
-    outPutProfits(sellingData)
+    // Pass the first map of the array to generate the table headers
+    generateTableHead(sellingData[0]);
+    // Generate the table data for the current calculations
+    outPutProfits(sellingData);
 }
 
 // outPutProfits outputs the calculated profits to the end user
-/* 
-    1. Have a for loop go through the array of maps
-        a. Add a new tr(in JS) for the new set of data
-    2. Inner loop (use Map.forEach()) to go through each map entry
-        a. Add each maps entry to the new tr just created (new TD for each entry)
-*/
 function outPutProfits(sellingData){
 
     // Iterate through the array of maps
@@ -106,7 +105,7 @@ function outPutProfits(sellingData){
         // Get the current map
         let currentMap = sellingData[i];
 
-        // Each key of the map in the sellingData array
+        // Grab the values from the current map using it's keys
         let assetBalance = currentMap.get("Asset balance");
         let sellAmount = currentMap.get("Asset to be sold");
         let remainAsset = currentMap.get("Remaining asset");
@@ -115,7 +114,7 @@ function outPutProfits(sellingData){
         let totalProfits = currentMap.get("Total gross profits");
 
         // Grab the table
-        let table = document.getElementById("profitData")
+        let table = document.getElementById("profitData");
 
         // Create a new row
         let newRow = table.insertRow(-1);
@@ -128,4 +127,29 @@ function outPutProfits(sellingData){
         newRow.insertCell(-1).innerHTML = gProfits;
         newRow.insertCell(-1).innerHTML = totalProfits;
     }
+}
+
+// generateTableHead generates the table head, dynamically, but accessing each key of the first map in the array
+// The first map from the array of maps is passed to this function
+function generateTableHead(data){
+    // Grab the table
+    let table = document.getElementById("profitData");
+
+    // Create the table header
+    let thead = table.createTHead();
+
+    // Create a new row for the table header
+    let theadRow = thead.insertRow();
+
+    // Dynmically grab each key from the map to generate the headers for the table
+    data.forEach(function(value, key){
+        // Create a new table headers
+        let th = document.createElement("th");
+        // Grab the key from the map
+        let text = document.createTextNode(key);
+        // Add the map key to the table header
+        th.appendChild(text);
+        // Add the table header to the current table row
+        theadRow.appendChild(th);
+    });
 }
