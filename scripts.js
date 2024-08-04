@@ -1,3 +1,15 @@
+/* 
+    TO DO:
+        1. Not have table headers generate every time the user clicks submit.
+            a. Have a check to see if the header already exist in the DOM, do not create if it does
+        2. Error handling
+            a. Do not let users input negative values
+            b. Make all input fields required before being able to submit the data
+            c. Check if there is enough asset balance left over to continue the calculation operations
+                1. Kill the loop if the balance is not high enough to continue selling
+        3. 
+*/
+
 // submitData handles collecting the data input by the end user
 function submitData(){
     // Total starting asset balance
