@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <!-- 
+            Collect user information
+            1. Asset amount
+            2. Percentage of asset amount to be sold
+            3. The price increment to sell assets at
+            4. Starting sell price
+            5. Ending sell price
+        -->
+        <label for="totalAssetAmount">Total Asset Amount:</label>
+        <input type="number" name="totalAssetAmount" id="totalAssetAmount" min="0">
+
+        <label for="sellingPercentage">Percent of asset to sell:</label>
+        <input type="number" name="sellingPercentage" id="sellingPercentage" min="0">
+
+        <label for="priceIncrement">How much to increase selling price by:</label>
+        <input type="number" name="priceIncrement" id="priceIncrement" min="0">
+
+        <label for="startSellPrice">Starting Sell Price:</label>
+        <input type="number" name="startSellPrice" id="startSellPrice" min="0">
+
+        <label for="endSellPrice">Ending Sell Price:</label>
+        <input type="number" name="endSellPrice" id="endSellPrice" min="0">
+
+        <button onclick="submitData()">Submit</button>
+        <br>
+        <br>
+        <br>
+        <table id="profitData">
+            <tr id="tableHeaders">
+                <th>Asset Balance</th>
+                <th>Amount Sold</th>
+                <th>Remaining Asset Balance</th>
+                <th>Current Sell Price</th>
+                <th>Profits At Price Point</th>
+                <th>Total Gross Profits</th>
+            </tr>
+        </table>
+    <script src="scripts.js"></script>
+</body>
+</html>
