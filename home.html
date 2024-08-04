@@ -15,22 +15,30 @@
             4. Starting sell price
             5. Ending sell price
         -->
-        <label for="totalAssetAmount">Total Asset Amount:</label>
-        <input type="number" name="totalAssetAmount" id="totalAssetAmount" min="0">
+        <div class="formContainer"> <!-- Start of form container -->
+            <div class="spacer"></div>
+            <div class="formBody"> <!-- Start of form body -->
+                <div class="inputForm"> <!-- Start of input form -->
+                    <label for="totalAssetAmount">Total Asset Amount:</label>
+                    <input type="number" name="totalAssetAmount" id="totalAssetAmount" min="0">
 
-        <label for="sellingPercentage">Percent of asset to sell:</label>
-        <input type="number" name="sellingPercentage" id="sellingPercentage" min="0">
+                    <label for="sellingPercentage">Percent of asset to sell:</label>
+                    <input type="number" name="sellingPercentage" id="sellingPercentage" min="0">
 
-        <label for="priceIncrement">How much to increase selling price by:</label>
-        <input type="number" name="priceIncrement" id="priceIncrement" min="0">
+                    <label for="priceIncrement">How much to increase selling price by:</label>
+                    <input type="number" name="priceIncrement" id="priceIncrement" min="0">
 
-        <label for="startSellPrice">Starting Sell Price:</label>
-        <input type="number" name="startSellPrice" id="startSellPrice" min="0">
+                    <label for="startSellPrice">Starting Sell Price:</label>
+                    <input type="number" name="startSellPrice" id="startSellPrice" min="0">
 
-        <label for="endSellPrice">Ending Sell Price:</label>
-        <input type="number" name="endSellPrice" id="endSellPrice" min="0">
+                    <label for="endSellPrice">Ending Sell Price:</label>
+                    <input type="number" name="endSellPrice" id="endSellPrice" min="0">
 
-        <button onclick="submitData()">Submit</button>
+                    <button onclick="submitData()">Submit</button>
+                </div>  <!-- End of input form -->
+            </div> <!-- End of form body-->
+            <div class="spacer"></div>
+        </div> <!-- End of form container -->
         <br>
         <br>
         <table id="profitData">

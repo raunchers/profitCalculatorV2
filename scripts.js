@@ -7,7 +7,12 @@
             b. Make all input fields required before being able to submit the data
             c. Check if there is enough asset balance left over to continue the calculation operations
                 1. Kill the loop if the balance is not high enough to continue selling
-        3. 
+                2. Sell all remaining assets at last price point able to be calculated? (if the checkbox is checked)
+        3. Add more options for the calculations
+            a. Add a radio box to select selling remaining assets at ending price
+        4. Style the spreadsheet
+            a. Keep the spreadsheet in an internal window with an internal scroll bar? Similar to textarea
+            b. Edit HTML to put the spreadsheet in a container of it's own for further styling
 */
 
 // submitData handles collecting the data input by the end user
@@ -116,7 +121,7 @@ function outPutProfits(sellingData){
     }
 }
 
-// generateTableHead generates the table head, dynamically, but accessing each key of the first map in the array
+// generateTableHead generates the table head, dynamically, by accessing each key of the first map in the array
 // The first map from the array of maps is passed to this function
 function generateTableHead(data){
     // Grab the table
